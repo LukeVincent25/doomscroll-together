@@ -28,7 +28,7 @@
   gateName.value = DS.getName();
   $('#gateReroll').onclick = () => (gateName.value = DS.randomName());
   $('#gateInfo').textContent = wantHost
-    ? (wantMode === 'mp4' ? 'you’re hosting · Offline-safe MP4s' : 'you’re hosting · YouTube Shorts mix — keep this tab open')
+    ? (wantMode === 'mp4' ? 'you’re hosting · Offline-safe MP4s' : 'you’re hosting · For You Shorts mix — keep this tab open')
     : 'connecting to the host’s browser — they must keep their tab open';
   gateName.addEventListener('keydown', (e) => e.key === 'Enter' && $('#enter').click());
   $('#enter').onclick = () => {
@@ -57,7 +57,7 @@
 
   async function start(name) {
     const onError = (msg) => {
-      $('#enter').disabled = false; $('#enter').textContent = 'Enter the brainrot 🧠';
+      $('#enter').disabled = false; $('#enter').textContent = 'Jump into the feed ✨';
       $('#gateInfo').textContent = '🚫 ' + msg;
       toast('🚫 ' + msg);
     };
@@ -149,7 +149,7 @@
       <div class="tap" title="tap to play / pause"></div>
       <div class="paused-icon">⏸</div>
       <div class="caption">
-        <div class="cap-title">${DS.esc(c.title || 'untitled brainrot')}</div>
+        <div class="cap-title">${DS.esc(c.title || 'untitled clip')}</div>
         <div class="cap-meta">${c.type === 'yt' ? '▶️' : '📼'} ${DS.esc(c.author || '')}${c.addedBy && !String(c.addedBy).startsWith('🤖') ? ` · added by <b>${DS.esc(c.addedBy)}</b>` : ''}</div>
       </div>
       <div class="progress"><i></i></div>
@@ -535,7 +535,7 @@
   // ---------- share ----------
   $('#share').onclick = async () => {
     const url = DS.inviteLink(code);
-    if (navigator.share && isMobile()) { try { await navigator.share({ title: 'doomscroll with me 💀', text: `join my brainrot room ${code}`, url }); return; } catch {} }
+    if (navigator.share && isMobile()) { try { await navigator.share({ title: 'doomscroll with me 💀', text: `watch Shorts with me — room ${code}`, url }); return; } catch {} }
     try { await navigator.clipboard.writeText(url); toast('🔗 invite link copied — send it to the group chat'); }
     catch { prompt('copy this link:', url); }
   };

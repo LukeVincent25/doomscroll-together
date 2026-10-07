@@ -1,6 +1,6 @@
 // shared helpers for landing + room
 const DS = (() => {
-  const ADJ = ['Skibidi', 'Sigma', 'Rizzler', 'Gyatt', 'Ohio', 'Fanum', 'Mewing', 'Goofy', 'Unhinged', 'Bussin', 'Delulu', 'Feral', 'Crusty', 'Aura-Farming', 'Mid', 'Cooked', 'Based', 'Sussy', 'Yapping', 'Chronically-Online', 'NPC', 'Gooning-Free', 'Tung Tung', 'Lowkey', 'Cracked'];
+  const ADJ = ['Happy', 'Lucky', 'Cozy', 'Sunny', 'Zippy', 'Jolly', 'Breezy', 'Goofy', 'Sparky', 'Chipper', 'Cosmic', 'Mellow', 'Peppy', 'Snazzy', 'Wiggly', 'Dandy', 'Quirky', 'Bubbly', 'Zesty', 'Plucky', 'Giddy', 'Nifty', 'Rowdy', 'Lowkey', 'Cracked'];
   const ANIMALS = ['Otter', 'Capybara', 'Goose', 'Penguin', 'Raccoon', 'Possum', 'Llama', 'Frog', 'Shrimp', 'Pigeon', 'Hamster', 'Axolotl', 'Sloth', 'Gremlin', 'Crab', 'Walrus', 'Moth', 'Ferret', 'Goblin', 'Duck', 'Chinchilla', 'Platypus'];
   const pick = (a) => a[Math.floor(Math.random() * a.length)];
   const randomName = () => `${pick(ADJ)} ${pick(ANIMALS)}`;

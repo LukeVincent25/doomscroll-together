@@ -27,7 +27,7 @@ const q = (pathName, extra = {}) => {
   await host.click('#create');
   await host.waitForURL(/room\.html/);
   const code = new URL(host.url()).searchParams.get('room');
-  await host.fill('#gateName', 'Skibidi Otter');
+  await host.fill('#gateName', 'Sunny Otter');
   await host.click('#enter');
   await host.waitForFunction(() => window.__ds && __ds.S && __ds.S.me, null, { timeout: 30000 });
 
@@ -35,7 +35,7 @@ const q = (pathName, extra = {}) => {
   await mob.setViewportSize({ width: 390, height: 844 });
   await mob.goto(q('index.html', { room: code }));
   await mob.waitForURL(/room\.html/);
-  await mob.fill('#gateName', 'Rizzler Capybara');
+  await mob.fill('#gateName', 'Cozy Capybara');
   await mob.click('#enter');
   await mob.waitForFunction(() => window.__ds && __ds.S && __ds.S.me, null, { timeout: 30000 });
   await sleep(2000);
@@ -45,7 +45,7 @@ const q = (pathName, extra = {}) => {
     await host.evaluate((e) => __ds.react(e), ['💀', '😭', '🔥', '🗿'][i % 4]);
     await sleep(50);
   }
-  await host.fill('#chatInput', 'maximum brainrot loading…');
+  await host.fill('#chatInput', 'this feed goes hard…');
   await host.press('#chatInput', 'Enter');
   await sleep(800);
 

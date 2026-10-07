@@ -4,12 +4,12 @@
 // own UI plus one per PeerJS data connection. Clocks are the host's Date.now().
 const RoomHost = (() => {
   const MP4_SEEDS = [
-    { file: 'bunny-aura', title: 'POV: the bunny has +1000 aura', author: 'Big Buck Bunny (CC-BY Blender Foundation)' },
-    { file: 'skibidi-freq', title: 'skibidi frequencies (do not scroll)', author: 'doomscroll-together' },
-    { file: 'sintel-sigma', title: 'sigma grindset at 3am', author: 'Sintel (CC-BY Blender Foundation)' },
-    { file: 'brain-cells', title: 'my last 2 brain cells leaving rn', author: 'doomscroll-together' },
-    { file: 'wifi-back', title: 'when the wifi comes back', author: 'Big Buck Bunny (CC-BY Blender Foundation)' },
-    { file: 'ohio-life', title: 'ohio cellular automata', author: 'doomscroll-together' },
+    { file: 'bunny-aura', title: 'Bunny in the meadow 🐰', author: 'Big Buck Bunny (CC-BY Blender Foundation)' },
+    { file: 'skibidi-freq', title: 'Neon pulse visualizer 🌈', author: 'doomscroll-together' },
+    { file: 'sintel-sigma', title: 'Sintel — a quiet moment 🗡️', author: 'Sintel (CC-BY Blender Foundation)' },
+    { file: 'brain-cells', title: 'Color swirl loop 🎨', author: 'doomscroll-together' },
+    { file: 'wifi-back', title: 'Big Buck Bunny — chase scene 🐇', author: 'Big Buck Bunny (CC-BY Blender Foundation)' },
+    { file: 'ohio-life', title: 'Game of Life patterns 🔬', author: 'doomscroll-together' },
   ].map((m) => ({ type: 'mp4', src: `media/${m.file}.mp4`, poster: `media/${m.file}.jpg`, title: m.title, author: m.author }));
 
   const AVATARS = ['🦦', '🐸', '🦆', '🐒', '🦝', '🐧', '🦙', '🐌', '🦀', '🐙', '🦈', '🐹', '🦥', '🐊', '🦩', '🐗', '🦫', '🐓'];
@@ -93,7 +93,7 @@ const RoomHost = (() => {
         room.users.set(sock.id, me);
         ack && ack({ me, state: snapshot(), emojis: EMOJIS });
         broadcast('presence', { type: 'join', user: me, users: publicUsers() }, sock.id);
-        if (!p.quiet) sys(`${me.avatar} ${me.name} entered the brainrot${isHost && !restore ? ' (hosting 👑)' : ''}`);
+        if (!p.quiet) sys(`${me.avatar} ${me.name} joined the feed${isHost && !restore ? ' (hosting 👑)' : ''}`);
       };
 
       // scroll / swipe to a clip

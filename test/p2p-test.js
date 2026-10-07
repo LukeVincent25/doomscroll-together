@@ -49,7 +49,7 @@ const q = (path, extra = {}) => {
   console.log('room', code, roomUrl);
   if (!new URL(roomUrl).searchParams.get('host')) errors.push('create did not set host=1');
 
-  await host.fill('#gateName', 'Skibidi Otter');
+  await host.fill('#gateName', 'Sunny Otter');
   await host.click('#enter');
   await host.waitForFunction(() => window.__ds && __ds.S && __ds.S.me, null, { timeout: 30000 });
   await sleep(800);
@@ -60,7 +60,7 @@ const q = (path, extra = {}) => {
   await a.setViewportSize({ width: 390, height: 844 });
   await a.goto(q('index.html', { room: code }));
   await a.waitForURL(/room\.html/);
-  await a.fill('#gateName', 'Rizzler Capybara');
+  await a.fill('#gateName', 'Cozy Capybara');
   await a.click('#enter');
   await a.waitForFunction(() => window.__ds && __ds.S && __ds.S.me, null, { timeout: 30000 });
 
@@ -68,7 +68,7 @@ const q = (path, extra = {}) => {
   const b = await ctx.newPage(); watch(b, 'joinerB');
   await b.setViewportSize({ width: 1000, height: 800 });
   await b.goto(q('room.html', { room: code }));
-  await b.fill('#gateName', 'Ohio Pigeon');
+  await b.fill('#gateName', 'Zippy Pigeon');
   await b.click('#enter');
   await b.waitForFunction(() => window.__ds && __ds.S && __ds.S.me, null, { timeout: 30000 });
   await sleep(1500);
