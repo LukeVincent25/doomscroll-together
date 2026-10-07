@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content" />
+<meta name="theme-color" content="#07020f" />
+<title>Room · Doomscroll Together</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="room">
+  <div class="bg-blobs"><i></i><i></i><i></i></div>
+
+  <div id="gate" class="gate">
+    <div class="card gate-card">
+      <div class="logo-emoji small">🧠</div>
+      <h2>Room <span class="code-chip" id="gateCode">····</span></h2>
+      <p class="muted" id="gateInfo">your friends are rotting without you</p>
+      <label class="lbl" for="gateName">display name</label>
+      <div class="row">
+        <input id="gateName" maxlength="24" autocomplete="off" spellcheck="false" />
+        <button id="gateReroll" class="btn ghost square" title="reroll">🎲</button>
+      </div>
+      <button id="enter" class="btn primary big">Enter the brainrot 🧠</button>
+      <a class="muted small-link" id="backLink" href="index.html">← back to lobby</a>
+    </div>
+  </div>
+
+  <div class="app" id="app">
+    <header class="topbar">
+      <a class="mini-logo" id="miniLogo" href="index.html" title="lobby">🧠<span>DOOMSCROLL<b>TOGETHER</b></span></a>
+      <button class="code-chip share" id="share" title="copy invite link"><span id="code">····</span> <em>🔗 invite</em></button>
+      <div class="meter" id="meter" title="brainrot meter — fills from reactions">
+        <div class="meter-fill" id="meterFill"></div>
+        <span class="meter-label">🧠 BRAINROT <b id="meterPct">0%</b></span>
+      </div>
+    </header>
+
+    <div class="stage">
+      <section class="feed-wrap">
+        <div class="people-strip" id="peopleStrip"></div>
+        <div class="feed" id="feed"></div>
+
+        <div class="float-layer" id="floatLayer"></div>
+        <div class="toast-layer" id="toasts"></div>
+        <div class="chat-pops" id="chatPops"></div>
+
+        <aside class="rail">
+          <button class="rail-btn" id="syncBtn" title="toggle synced / free scroll"><span>🧲</span><small>synced</small></button>
+          <button class="rail-btn" id="muteBtn" title="sound"><span>🔇</span><small>sound</small></button>
+          <button class="rail-btn" id="addBtn" title="add a clip"><span>➕</span><small>add</small></button>
+          <button class="rail-btn mobile-only" id="chatBtn" title="chat"><span>💬</span><small>chat</small><i class="badge" id="unread" hidden>0</i></button>
+          <button class="rail-btn" id="navUp" title="previous (↑ / k)"><span>⬆️</span></button>
+          <button class="rail-btn" id="navDown" title="next (↓ / j)"><span>⬇️</span></button>
+        </aside>
+
+        <div class="react-bar" id="reactBar"></div>
+        <button class="rejoin" id="rejoin" hidden>🧲 squad is on clip <b id="rejoinIdx"></b> — rejoin</button>
+      </section>
+
+      <aside class="side" id="side">
+        <div class="side-head">
+          <h3>in the room <span class="count" id="count">0</span></h3>
+          <button class="btn ghost square mobile-only" id="closeChat" title="close">✕</button>
+        </div>
+        <ul class="people" id="people"></ul>
+        <h3 class="chat-title">chat <small class="muted">(be unhinged, respectfully)</small></h3>
+        <div class="chat" id="chat"></div>
+        <form class="chat-form" id="chatForm">
+          <input id="chatInput" maxlength="280" placeholder="say something brainrot…" autocomplete="off" />
+          <button class="btn primary">send</button>
+        </form>
+      </aside>
+    </div>
+  </div>
+
+  <div class="modal" id="addModal" hidden>
+    <form class="card" id="addForm">
+      <h3>➕ Add a clip</h3>
+      <p class="muted">Paste a YouTube Shorts / YouTube link (or a direct .mp4 URL).</p>
+      <input id="addUrl" placeholder="https://youtube.com/shorts/…" autocomplete="off" />
+      <p class="err" id="addErr"></p>
+      <div class="row">
+        <button type="button" class="btn ghost" id="addCancel">cancel</button>
+        <button type="submit" class="btn" data-next="0">add to queue</button>
+        <button type="submit" class="btn primary" data-next="1">play next ⏭</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="maxed" id="maxed" hidden><div>MAXIMUM<br/>BRAINROT<br/><span>🧠💥</span></div></div>
+
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="common.js"></script>
+<script src="youtube.js"></script>
+<script src="host.js"></script>
+<script src="net.js"></script>
+<script src="room.js"></script>
+</body>
+</html>

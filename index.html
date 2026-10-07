@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#07020f" />
+<meta name="description" content="Doomscroll Together — rot your brain in sync with friends over peer-to-peer WebRTC." />
+<title>Doomscroll Together 🧠💀</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="landing">
+  <div class="bg-blobs"><i></i><i></i><i></i></div>
+  <main class="land">
+    <div class="logo-wrap">
+      <div class="logo-emoji">🧠</div>
+      <h1 class="logo">DOOMSCROLL<br/><span>TOGETHER</span></h1>
+      <p class="tagline">rot your brain <b>in sync</b> with the homies. one swipes, everyone swipes. 💀</p>
+    </div>
+
+    <section class="card">
+      <label class="lbl" for="name">your display name</label>
+      <div class="row">
+        <input id="name" maxlength="24" autocomplete="off" spellcheck="false" />
+        <button id="reroll" class="btn ghost square" title="reroll name">🎲</button>
+      </div>
+
+      <label class="lbl">feed</label>
+      <div class="seg" id="mode">
+        <button data-mode="yt" class="on">🔥 YouTube Shorts mix</button>
+        <button data-mode="mp4">📼 Offline-safe MP4s</button>
+      </div>
+
+      <button id="create" class="btn primary big">✨ Create a room</button>
+
+      <div class="or"><span>or join the squad</span></div>
+      <form id="joinForm" class="row">
+        <input id="code" placeholder="ROOM CODE" maxlength="8" autocomplete="off" spellcheck="false" class="code-input" />
+        <button class="btn">Join →</button>
+      </form>
+      <p class="err" id="err"></p>
+      <p class="muted" style="margin:12px 0 0;font-size:13px;line-height:1.4">Peer-to-peer: the room lives in the <b>host’s browser</b>. Keep that tab open. No server, no accounts.</p>
+    </section>
+
+    <ul class="features">
+      <li>🔄 synced swipes</li><li>💀 live reactions</li><li>📈 brainrot meter</li><li>💬 chat</li><li>➕ paste any Short</li>
+    </ul>
+  </main>
+<script src="common.js"></script>
+<script>
+  // invite links land on /?room=ABCD — hand off to the room page
+  (function () {
+    const p = new URLSearchParams(location.search);
+    const room = DS.normCode(p.get('room') || p.get('code') || '');
+    if (room) {
+      const q = new URLSearchParams();
+      q.set('room', room);
+      if (p.get('peer')) q.set('peer', p.get('peer'));
+      location.replace('room.html?' + q.toString());
+      return;
+    }
+  })();
+
+  const $ = (s) => document.querySelector(s);
+  const nameEl = $('#name');
+  nameEl.value = DS.getName();
+  $('#reroll').onclick = () => { nameEl.value = DS.randomName(); nameEl.animate([{ transform: 'rotate(-3deg) scale(1.05)' }, { transform: 'none' }], 250); };
+  let mode = 'yt';
+  document.querySelectorAll('#mode button').forEach((b) => b.onclick = () => {
+    mode = b.dataset.mode; document.querySelectorAll('#mode button').forEach((x) => x.classList.toggle('on', x === b));
+  });
+  const go = (code, asHost) => {
+    DS.saveName(nameEl.value.trim() || DS.randomName());
+    const q = new URLSearchParams({ room: code });
+    if (asHost) { q.set('host', '1'); q.set('mode', mode); }
+    const peer = new URLSearchParams(location.search).get('peer');
+    if (peer) q.set('peer', peer);
+    location.href = 'room.html?' + q.toString();
+  };
+  $('#create').onclick = () => {
+    $('#create').disabled = true; $('#create').textContent = 'summoning room…';
+    go(DS.newCode(), true);
+  };
+  $('#code').addEventListener('input', (e) => e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''));
+  $('#joinForm').onsubmit = (e) => {
+    e.preventDefault();
+    const code = $('#code').value.trim();
+    if (code.length < 3) { $('#err').textContent = 'codes are 4 letters bestie'; return; }
+    go(DS.normCode(code), false);
+  };
+  const m = location.hash.match(/join=([A-Z0-9]+)/i); if (m) $('#code').value = m[1].toUpperCase();
+</script>
+</body>
+</html>

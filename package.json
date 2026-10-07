@@ -1,0 +1,16 @@
+{
+  "name": "doomscroll-together-pages",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static / PeerJS build of Doomscroll Together for GitHub Pages",
+  "scripts": {
+    "start": "npx --yes http-server -p 8080 -c-1",
+    "peer": "npx --yes peer --port 9000",
+    "test": "node test/p2p-test.js",
+    "screenshots": "node test/screenshots.js"
+  },
+  "devDependencies": {
+    "peer": "^1.0.2",
+    "playwright-core": "^1.63.0"
+  }
+}
