@@ -1,19 +1,19 @@
 # 🧠 Doomscroll Together
 
-A shared, TikTok-style vertical **For You** feed — one person swipes and everyone swipes. Live presence, floating emoji reactions, a playful vibes / brainrot meter, and chat.
+A shared, TikTok-style vertical **dark humor** feed — one person swipes and everyone swipes. Live presence, floating emoji reactions, a playful vibes / brainrot meter, and chat.
 
 **Live:** [https://lukevincent25.github.io/doomscroll-together/](https://lukevincent25.github.io/doomscroll-together/)
 
 ## How to play
 
-1. Open the link above, pick a silly animal name (or 🎲 reroll), choose **For You · Shorts mix** or **Offline-safe MP4s**, hit **Create a room**.
+1. Open the link above, pick a silly animal name (or 🎲 reroll), choose **Dark humor mix** or **Offline-safe MP4s**, hit **Create a room**.
 2. Share the invite link (`…/?room=ABCD`) — the **🔗 invite** chip copies it. Friends can also type the 4-letter code on the landing page.
 3. **Keep the host’s tab open.** The room lives in the creator’s browser (peer-to-peer). If the host closes the tab, everyone else sees “host left the room.”
 4. Swipe / scroll (or `↑`/`↓`/`j`/`k`). Everyone in **🧲 synced** mode moves with you. Tap the video to pause, the progress bar to seek, `1`–`0` for reactions, and chat with `/nick New Name` to rename.
 
 ## Feed content
 
-The default **For You · Shorts mix** is a mainstream Shorts algorithm vibe: animals, cooking, travel, sports highlights, music/dance, DIY, nature — not meme-spam. The offline MP4 room uses bundled Blender CC clips plus simple synthetic loops.
+The default **Dark humor mix** is Shorts from mainstream comedy channels (Anthony Jeselnik, Jimmy Carr, Netflix Is A Joke roasts, I Think You Should Leave, WKUK sketches, Conan, Jim Jefferies, Tom Segura): morbid one-liners, roasts, deadpan and absurdist sketches. Clips whose titles suggest jokes aimed at race, religion, gender, sexuality or disability were left out, and every clip was checked to play in an embedded player. The offline MP4 room uses bundled Blender CC clips plus simple synthetic loops.
 
 ## How hosting works
 
